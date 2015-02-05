@@ -1,0 +1,25 @@
+SOAP
+
+* HTTP Headers in the Request:
+i got no response
+* HTTP Headers in the Response: i got 10 response:
+
+- X-AspNet-Version:4.0.30319: Specifies the version of ASP.NET used.
+
+- Vary: Accept-Encoding: tells the browser that two cacheable responses of the same resource will be the same
+
+- Date:Thu, 05 Feb 2015 01:33:34 GMT: date of the request
+
+- Content-Length:403: number of character, or the size of the entity-body
+
+- #status#: HTTP/1.1 200 OK : Standard response for successful HTTP requests.
+
+- Content-Encoding: gzip: the type of encoding used on the data
+
+- Content-Type:text/xml; charset=utf-8: The type of data the response contains.
+
+- Server: Microsoft-IIS/7.0: this is the server using to sent a request
+
+- X-Powered-By:ASP.NET: Specifies the technology supporting the web application.
+
+- Cache-Control:private, max-age=0: Used to specify directives that must be obeyed by all caching 
