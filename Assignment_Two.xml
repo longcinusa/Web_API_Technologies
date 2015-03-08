@@ -1,1 +1,25 @@
-
+* hello.js file: 
+this is the code on apipee:
+var express = require('express');
+var app = express();
+app.get('/', function (req, res) {
+  res.send('Hello World');
+}).listen(8888)
+app.put('/', function (req, res) {
+  res.send('Hello Node');
+}).listen(8888)
+app.post('/', function (req, res) {
+  res.send('Have a nice day!');
+}).listen(8888)
+app.delete('/', function (req, res) {
+  res.send('Sorry for this action');
+}).listen(8888)
+app.all('/:uuid', function(req, res) {
+  if (req.method === 'get') {
+    req.pipe(request.get(basepath + req.params.uuid));
+  } 
+  else if (req.method === 'put' || req.method === 'post' || req.method === 'delete') {
+    request.put(basepath + req.params.uuid).pipe(res)
+  }
+});
+console.log('Sever running at http://127.0.0.1:8888/');
