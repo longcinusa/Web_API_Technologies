@@ -1,5 +1,7 @@
-* hello.js file: 
-this is the code on apipee:
+* node.js file link:
+-this is the HELLO file i created on apigee. it will accept the GET, PUT ,POST, DELETE request, orthers request will rejected.
+https://enterprise.apigee.com/platform/#/longcinusa/apis/Hello/1?section=overview.
+-this is the code for hello.js:
 var express = require('express');
 var app = express();
 app.get('/', function (req, res) {
@@ -24,6 +26,9 @@ app.all('/:uuid', function(req, res) {
 });
 console.log('Sever running at http://127.0.0.1:8888/');
 
-* this is file on SOAPUI:
+
+*this is the file i created on SOAPUI:
+- when i sent the GET,PUT,POST,DELETE  request, i get the same result on apigee when i sent the request.
+
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-project id="d088ef96-6d4e-4a3d-b64e-e0ff54e1bf42" activeEnvironment="Default environment" name="REST Project 2" resourceRoot="" soapui-version="6.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="77ea34ad-d414-465a-9213-ed85069e931e" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://longcinusa-test.apigee.net" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://longcinusa-test.apigee.net</con:endpoint></con:endpoints><con:resource name="Hello" path="/v1/hello" id="060f8c29-fe8a-43eb-8ae1-7569c295c93a"><con:settings/><con:parameters/><con:method name="Hello" id="9393a200-5de3-4938-a9a1-035f3fbb760f" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>404</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>200</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="fed29a2b-13d6-48ff-a4a3-f521974d0337" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://longcinusa-test.apigee.net</con:endpoint><con:request/><con:originalUri>http://longcinusa-test.apigee.net/v1/hello</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:authRepository/></con:soapui-project>
