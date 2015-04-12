@@ -1,0 +1,98 @@
+- this soapUI for part 2:
+• Create a proxy to interact with the backend service.
+– Users should be able to get information about movies through the proxy.
+∗ Users should be able to query a specific movie, as well as a list of them.
+– Users should be able to post new entries to the BaaS through the proxy.
+∗ Ensure incoming entities contain the necessary information. For example, if a movie does not contain actors, the entity should not be created and an error returned to the user.
+– Users should be able to delete existing entries from the BaaS through the proxy.
+– Follow best practices when creating the proxy, i.e. there should be different paths
+based on the collection and operation.
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6f4921f8-190c-4e7c-bef0-1f1b321ce43e" activeEnvironment="Default" name="REST Project 2" resourceRoot="" soapui-version="5.1.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="05219c1e-c2c6-4c81-a3e4-6dddecc446c8" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://longcinusa-test.apigee.net" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://longcinusa-test.apigee.net</con:endpoint></con:endpoints><con:resource name="Newmovies" path="/v1/newmovies" id="d2824e34-0fba-4779-80cc-a113591268ba"><con:settings/><con:parameters/><con:method name="Newmovies" id="89811398-3d7e-4abf-875e-493ffecf7f2c" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>402 500 401</con:status><con:params/><con:element xmlns:new="http://longcinusa-test.apigee.net/v1/newmovies">new:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:new="http://longcinusa-test.apigee.net/v1/newmovies">new:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="042c60de-5d2c-4a8f-b7ab-30af300c7007" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="contentType" value="application/json" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://longcinusa-test.apigee.net</con:endpoint><con:request/><con:originalUri>http://longcinusa-test.apigee.net/v1/newmovies</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+
+- for part 1:
+Create a collection in Apigee’s BaaS to hold information about movies.
+– Each entry should contain the following: Title, year released, and an array of three actors that were in the film.
+– The movie collection should have at least five movies.
+
+- this is how i got on soapUI:
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+Date: Sun, 12 Apr 2015 04:48:57 GMT
+Server: Apache-Coyote/1.1
+Set-Cookie: rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sat, 11-Apr-2015 04:48:57 GMT
+x-apigee-serverprocessingtime: 46
+transfer-encoding: chunked
+Connection: keep-alive
+
+{
+  "action" : "get",
+  "application" : "479cc6c0-b242-11e4-a861-8b38ce9139fb",
+  "params" : { },
+  "path" : "/movies",
+  "uri" : "https://api.usergrid.com/longcinusa/sandbox/movies",
+  "entities" : [ {
+    "uuid" : "2983243a-defd-11e4-ad60-f970516f6f45",
+    "type" : "movie",
+    "created" : 1428613963251,
+    "modified" : 1428613963251,
+    "Actors" : "Mark Wahlberg, Anthony Mackie, Ken Jeong",
+    "metadata" : {
+      "path" : "/movies/2983243a-defd-11e4-ad60-f970516f6f45"
+    },
+    "Title" : "Pain & Gain",
+    "YearReleased" : "2013"
+  }, {
+    "uuid" : "4bdc04ca-defd-11e4-b419-7b699ef5035b",
+    "type" : "movie",
+    "created" : 1428614020876,
+    "modified" : 1428614020876,
+    "Actors" : "Paul Walker, Vin Diesel, Dwayne Johnson",
+    "metadata" : {
+      "path" : "/movies/4bdc04ca-defd-11e4-b419-7b699ef5035b"
+    },
+    "Title" : "Furious 7",
+    "YearReleased" : "2015"
+  }, {
+    "uuid" : "7907210a-defd-11e4-8d2c-b94a9fe03a61",
+    "type" : "movie",
+    "created" : 1428614096656,
+    "modified" : 1428614096656,
+    "Actors" : "Willem Dafoe, Sam Neill, Morgana Davies",
+    "metadata" : {
+      "path" : "/movies/7907210a-defd-11e4-8d2c-b94a9fe03a61"
+    },
+    "Title" : "The Hunter",
+    "YearReleased" : "2011"
+  }, {
+    "uuid" : "9d60175a-defd-11e4-a327-9f7a4291eb8c",
+    "type" : "movie",
+    "created" : 1428614157637,
+    "modified" : 1428614157637,
+    "Actors" : "Will Ferrell, Kevin Hart, Alison Brie",
+    "metadata" : {
+      "path" : "/movies/9d60175a-defd-11e4-a327-9f7a4291eb8c"
+    },
+    "Title" : "Get Hard",
+    "YearReleased" : "2015"
+  }, {
+    "uuid" : "f8596daa-defd-11e4-abc4-1d6b263bb55d",
+    "type" : "movie",
+    "created" : 1428614310266,
+    "modified" : 1428614310266,
+    "Actors" : "Zach Galifianakis, Bradley Cooper, Justin Bartha",
+    "metadata" : {
+      "path" : "/movies/f8596daa-defd-11e4-abc4-1d6b263bb55d"
+    },
+    "Title" : "Hangover",
+    "YearReleased" : "2009"
+  } ],
+  "timestamp" : 1428814137600,
+  "duration" : 32,
+  "organization" : "longcinusa",
+  "applicationName" : "sandbox",
+  "count" : 5
+}
